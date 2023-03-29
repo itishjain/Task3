@@ -1,0 +1,25 @@
+import React,{useState} from 'react';
+
+function InputTask(props){
+  const [taskItem, setTaskItem] = useState("");
+  return (
+  <div>
+    <input type="text" value={taskItem} className="task-input" placeholder="Enter your task..." onChange={(event)=>{
+      setTaskItem(event.target.value);
+    }} />
+    <button className="btn" onClick={()=>{
+      if(taskItem === ""){
+        alert("Enter the task first");
+      }
+      else{
+        props.addTaskItem(taskItem);
+        setTaskItem("");
+      }
+    }}>Click Me</button>
+    <div>
+      {taskItem}
+    </div>
+  </div>
+  );
+}
+export default InputTask;

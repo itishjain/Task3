@@ -1,0 +1,10 @@
+import React from 'react';
+
+function List(props) {
+  return(
+    <div>
+      <li>{props.listItem}</li>
+    </div>
+  );
+}
+export default List;

@@ -1,0 +1,26 @@
+import React,{useState} from 'react';
+import InputTask from './components/InputTask.jsx';
+import List from './components/List.jsx';
+export function App() {
+  const [taskList , setTaskList] = useState([]);
+  const addTaskItem = (taskItem)=>{
+    if (taskList.includes(taskItem)){
+      alert("Task Already Present. Phle use complete Kar BHOSDIKE!");
+    }
+    else{
+      setTaskList([...taskList, taskItem]);
+      console.log(taskList);
+    }
+  }
+  return (
+    <div className='App'>
+    <h1 className="heading">To-do List</h1>
+      <InputTask addTaskItem={addTaskItem}/>
+      {taskList.map((listItem, i)=>{
+        return (
+          <List key={i} listItem={listItem}/>
+        );
+      })}
+    </div>
+  );
+}
